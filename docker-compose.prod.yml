@@ -1,6 +1,6 @@
 version: '3.7'
 services:
-  web: 
+  web:
     image: ${DOCKERHUB_USER}/dockerkvs_web:${BUILD_TIMESTAMP}
     container_name: dockerkvs_web
     restart: unless-stopped
@@ -9,7 +9,7 @@ services:
     ports:
       - 80:80
     environment:
-      APP_SERVER: http://app:80
+      APP_SERVER: http://127.0.0.1:80
   app:
     image: ${DOCKERHUB_USER}/dockerkvs_app:${BUILD_TIMESTAMP}
     container_name: dockerkvs_app
@@ -28,4 +28,4 @@ services:
       - dockerkvs_redis_volume:/data
 volumes:
   dockerkvs_redis_volume:
-    driver: local 
+    driver: local
